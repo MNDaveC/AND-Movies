@@ -1,5 +1,6 @@
 package com.mndavec.movies;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -37,13 +38,16 @@ public class MainActivity extends AppCompatActivity {
             "https://api.themoviedb.org/3/discover/movie?";
     final String POSTERS_BASE_URL = "https://image.tmdb.org/t/p/";
     final String POSTER_SIZE = "w500";
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        context = this;
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -187,34 +191,36 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String[] result) {
-            if (result != null) {
-                if (moviePosterAdapter != null) {
-                    moviePosterAdapter.clear();
-                }
-                for(String posterURL : result) {
-                    moviePosterAdapter.add(posterURL);
-                }
-                GridView gridview = (GridView) findViewById(R.id.grid_posters);
-                gridview.setAdapter(moviePosterAdapter);
-            }
-        }
-
-        private String[] getMovieDataFromJson(String moviesJsonStr)
-                throws JSONException {
-
-            final String MOVIE_LIST = "results";
-
-            JSONObject moviesJson = new JSONObject(moviesJsonStr);
-            JSONArray movieArray = moviesJson.getJSONArray(MOVIE_LIST);
-
-            int numPosters = movieArray.length();
-            String[] moviePosters = new String[numPosters];
-            for(int i = 0; i < numPosters; i++) {
-                JSONObject movie = movieArray.getJSONObject(i);
-                moviePosters[i] = POSTERS_BASE_URL + POSTER_SIZE + movie.getString("poster_path");
-
-            }
-            return moviePosters;
+//            if (result != null) {
+//                if (moviePosterAdapter != null) {
+//                    moviePosterAdapter.clear();
+//                }
+//                for(String posterURL : result) {
+//                    moviePosterAdapter.add(posterURL);
+//                }
+            moviePosterAdapter = new ImageAdapter(context, result);
+            GridView gridview = (GridView) findViewById(R.id.grid_posters);
+            gridview.setAdapter(moviePosterAdapter);
+            Log.d(this.toString(), "loaded posters");
         }
     }
+
+    private String[] getMovieDataFromJson(String moviesJsonStr)
+            throws JSONException {
+
+        final String MOVIE_LIST = "results";
+
+        JSONObject moviesJson = new JSONObject(moviesJsonStr);
+        JSONArray movieArray = moviesJson.getJSONArray(MOVIE_LIST);
+
+        int numPosters = movieArray.length();
+        String[] moviePosters = new String[numPosters];
+        for(int i = 0; i < numPosters; i++) {
+            JSONObject movie = movieArray.getJSONObject(i);
+            moviePosters[i] = POSTERS_BASE_URL + POSTER_SIZE + movie.getString("poster_path");
+
+        }
+        return moviePosters;
+    }
+
 }

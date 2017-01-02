@@ -3,75 +3,57 @@
 
     <item
         is-multidex="true"
-        jar="/Users/z013hrc/github/Movies/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jar="/Users/z013hrc/github/AND-Movies/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="/Users/z013hrc/github/Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_beff49ab7b809984fc6265da5049d90c543dfd32/classes.dex" />
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/Users/z013hrc/github/AND-Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_65bb2944c816684e79ccb729a21aec625540c975/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/z013hrc/github/Movies/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
+        jar="/Users/z013hrc/github/AND-Movies/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
-        <dex dex="/Users/z013hrc/github/Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-24.2.1_3f9daced7d11c2eb5b93b07550952493f5cde2ff/classes.dex" />
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/Users/z013hrc/github/AND-Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-24.2.1_7515194b9a394730ae7ef830463255520e90f36b/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/z013hrc/github/Movies/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="/Users/z013hrc/github/Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_fb3eb033766c692f82ea3868a756f285c44c4581/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/z013hrc/github/Movies/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="/Users/z013hrc/github/Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_777ab4cd4ce4fc7c1fb166686471b6c7366e8919/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/z013hrc/github/Movies/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="c2db9bbdb5ec30b7a385c74133b5e300184a8f26">
-        <dex dex="/Users/z013hrc/github/Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_2a00470b54c4c2d8af829626469e4b4e11b2aeea/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/z013hrc/github/Movies/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="/Users/z013hrc/github/Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_91a9a49f3d6175ba2119d7f834359dbddc61328b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/z013hrc/github/Movies/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jar="/Users/z013hrc/github/AND-Movies/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="/Users/z013hrc/github/Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.1_575f531947eb36a9afc16fa48df39845920f42c9/classes.dex" />
+        <dex dex="/Users/z013hrc/github/AND-Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.1_a328a8f237fece527225914ea25b40d518bac472/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/z013hrc/github/Movies/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jar="/Users/z013hrc/github/AND-Movies/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="/Users/z013hrc/github/Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_57bcbcdcf500ab17f3ef45c15cb0053967c26414/classes.dex" />
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/Users/z013hrc/github/AND-Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_9fb4f49f078f90e506c691eb2ad9bbf42fe8abb6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/z013hrc/github/AND-Movies/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/Users/z013hrc/github/AND-Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_fa6076fc63bcf07037b96582640cb7ac87f8c23b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/z013hrc/github/AND-Movies/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/Users/z013hrc/github/AND-Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_ce3eb163e0c890cfeca068d881f3f4c932c00803/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -80,97 +62,124 @@
         optimize="true"
         revision="25.0.0"
         sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="/Users/z013hrc/github/Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.1_b58a5fd5ae4ee2dcd67775c507af7bd20f5a9fa9/classes.dex" />
+        <dex dex="/Users/z013hrc/github/AND-Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.1_b58a5fd5ae4ee2dcd67775c507af7bd20f5a9fa9/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/z013hrc/github/Movies/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jar="/Users/z013hrc/github/AND-Movies/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="/Users/z013hrc/github/Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_dbdb75663256ab83837d8a204286ded33de6b764/classes.dex" />
+        sha1="6914b04d552d7484ca95d4b576ebd85fd44909e0">
+        <dex dex="/Users/z013hrc/github/AND-Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_bca49e364df0eedb252b58ad6f3e4ff7eb1faf7f/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/z013hrc/github/Movies/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="/Users/z013hrc/github/Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_0c3f8d9d866c38e91a85f3bb77b9fd3a99fe476a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/z013hrc/github/Movies/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
-        <dex dex="/Users/z013hrc/github/Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-24.2.1_c5ac7d600ce919370dd4b1dd187ebb5a330477b4/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/z013hrc/github/Movies/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="/Users/z013hrc/github/Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-24.2.1_1336cd4f37d90a5dd2c33052c609c2456f321d74/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/z013hrc/github/Movies/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="/Users/z013hrc/github/Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_20f2ece2b72abb8cf8ec1c5c1a9493bc8a5cfd49/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/z013hrc/github/Movies/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="0432e77d03c2633fbbcd03124c1dfe25395ff8bb">
-        <dex dex="/Users/z013hrc/github/Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_4de70b890dd89e2556406798a4dec76cd69f3cd2/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/z013hrc/github/Movies/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="/Users/z013hrc/github/Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_7fdc1ebacf5ea11077a620ca3b9aa70fbf00f31a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/z013hrc/github/Movies/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="/Users/z013hrc/github/Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_79e58984d103d1187e556f1b9f000990cc7438c7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/z013hrc/github/Movies/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="/Users/z013hrc/github/Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_b28256eef92dbffb06db0168628abbabe7e9a484/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/z013hrc/github/Movies/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jar="/Users/z013hrc/github/AND-Movies/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/z013hrc/github/Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_8367062cde8bcbe1a8922ade1c24368f41c3bbbb/classes.dex" />
+        <dex dex="/Users/z013hrc/github/AND-Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_d688863a397363ac9ea35080e115c86df1ab3635/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/z013hrc/github/AND-Movies/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="/Users/z013hrc/github/AND-Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-24.2.1_fdd3f24babae1190c63c3dab70ef852c0d17e9bb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/z013hrc/github/AND-Movies/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/Users/z013hrc/github/AND-Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_7739e6d0cdb4375ca68ba5e836b3619284b1fbd4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/z013hrc/github/AND-Movies/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/Users/z013hrc/github/AND-Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_304f9da5ff6a4f5bd9b1063c2b5eb0a832eb13e9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/z013hrc/github/AND-Movies/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/Users/z013hrc/github/AND-Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_96cf1959c0c6a241e378b1ad387c2068eb187cf6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/z013hrc/github/AND-Movies/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/Users/z013hrc/github/AND-Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_ca5b627c05838bbec3b85e5feb0f894dd2bcd4d4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/z013hrc/github/AND-Movies/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/Users/z013hrc/github/AND-Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_54c67a6cb35379d611af88e12a663fadd0ac4fe2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/z013hrc/github/AND-Movies/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="/Users/z013hrc/github/AND-Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-24.2.1_e42319b4259b37e09c48b0effe6f7750bfb75d69/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/z013hrc/github/AND-Movies/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/Users/z013hrc/github/AND-Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_a8db6c473a28a2e95439941468b4221bd89e7fb2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/z013hrc/github/AND-Movies/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="1791432a4e6af994ce40cf6386c7d6d3842cb538">
+        <dex dex="/Users/z013hrc/github/AND-Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_b72a7bbe112edd21dc8574257c7f51795d15d1f5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/z013hrc/github/AND-Movies/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/Users/z013hrc/github/AND-Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_0e40b6c99d2f78e1c7ec2fd1214fe6f80dd66f46/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/z013hrc/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/Users/z013hrc/github/AND-Movies/app/build/intermediates/transforms/dex/debug/folders/1000/10/picasso-2.5.2_dca4c2f440e0f6a9552e2b08313f35145d55c455/classes.dex" />
     </item>
 
 </items>
