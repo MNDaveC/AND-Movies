@@ -1,4 +1,7 @@
 .idea/
+.gradle/*
 /.idea/libraries/rules_0_5.xml
 support_media_compat_24_2_1.xml
 .idea
+support_compat_24_2_1.xml
+appcompat_v7_24_2_1.xml
