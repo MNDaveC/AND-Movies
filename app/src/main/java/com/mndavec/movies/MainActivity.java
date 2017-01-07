@@ -1,34 +1,24 @@
 package com.mndavec.movies;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.format.Time;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.GridView;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
     private ImageAdapter moviePosterAdapter;
@@ -96,11 +86,11 @@ public class MainActivity extends AppCompatActivity {
         movieTask.execute(sort);
     }
 
-    public class FetchMovieList extends AsyncTask<String, Void, String[]> {
+    public class FetchMovieList extends AsyncTask<String, Void, Movie[]> {
         private final String LOG_TAG = FetchMovieList.class.getSimpleName();
 
         @Override
-        protected String[] doInBackground(String... params) {
+        protected Movie[] doInBackground(String... params) {
             // If there's no zip code, there's nothing to look up.  Verify size of params.
             if (params.length == 0) {
                 return null;
@@ -186,11 +176,11 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(LOG_TAG, e.getMessage(), e);
                 e.printStackTrace();
             }
-            return new String[0];
+            return new Movie[0];
         }
 
         @Override
-        protected void onPostExecute(String[] result) {
+        protected void onPostExecute(Movie[] result) {
 //            if (result != null) {
 //                if (moviePosterAdapter != null) {
 //                    moviePosterAdapter.clear();
@@ -205,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private String[] getMovieDataFromJson(String moviesJsonStr)
+    private Movie[] getMovieDataFromJson(String moviesJsonStr)
             throws JSONException {
 
         final String MOVIE_LIST = "results";
@@ -214,13 +204,15 @@ public class MainActivity extends AppCompatActivity {
         JSONArray movieArray = moviesJson.getJSONArray(MOVIE_LIST);
 
         int numPosters = movieArray.length();
-        String[] moviePosters = new String[numPosters];
+        Movie[] movieList = new Movie[numPosters];
         for(int i = 0; i < numPosters; i++) {
-            JSONObject movie = movieArray.getJSONObject(i);
-            moviePosters[i] = POSTERS_BASE_URL + POSTER_SIZE + movie.getString("poster_path");
-
+            JSONObject movieJSON = movieArray.getJSONObject(i);
+            movieList[i] = Movie.builder()
+                    .setMovieName(movieJSON.getString("poster_path"))
+                    .setPosterURL(POSTERS_BASE_URL + POSTER_SIZE + movieJSON.getString("poster_path"))
+                    .build();
         }
-        return moviePosters;
+        return movieList;
     }
 
 }

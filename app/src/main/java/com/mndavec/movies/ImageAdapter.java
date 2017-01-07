@@ -2,23 +2,17 @@ package com.mndavec.movies;
 
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
-
 import com.squareup.picasso.Picasso;
-
-import java.net.URI;
-import java.net.URISyntaxException;
 
 public class ImageAdapter extends BaseAdapter {
     private Context context;
-    private String[] posters;
+    private Movie[] posters;
 
-    public ImageAdapter(Context c, String[] posters) {
+    public ImageAdapter(Context c, Movie[] posters) {
         context = c;
         this.posters = posters;
     }
@@ -41,7 +35,7 @@ public class ImageAdapter extends BaseAdapter {
         if (view == null) {
             view = new ImageView(context);
         }
-        String url = posters[position]; //getItem(position);
+        String url = posters[position].getPosterURL(); //getItem(position);
         Picasso.with(context).load(url).into(view);
         return view;
     }
