@@ -13,3 +13,6 @@ build/
 .project
 .idea
 .DS_Store
+/.idea/misc.xml
+/.DS_Store
+/app/.DS_Store
