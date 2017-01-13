@@ -1,29 +1,35 @@
 package com.mndavec.movies;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
-import com.mndavec.movies.model.Movie;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
+import com.google.gson.Gson;
+import com.mndavec.movies.model.MovieDetail;
+import com.squareup.picasso.Picasso;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.List;
+import org.json.JSONException;
 
 import static com.mndavec.movies.MainActivity.MOVIE_ID;
+import static com.mndavec.movies.MainActivity.POSTERS_BASE_URL;
 
 public class DetailActivity extends AppCompatActivity {
 
     final String MOVIES_BASE_URL = "https://api.themoviedb.org/3/movie/";
+
+    Context context = (Context) this;
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,15 +40,9 @@ public class DetailActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         loadMovie(movieID);
+
     }
 
     private void loadMovie(long movieID) {
@@ -51,11 +51,11 @@ public class DetailActivity extends AppCompatActivity {
         getMovieTask.execute(movieStrID);
     }
 
-    public class FetchMovieDetail extends AsyncTask<String, Void, List<Movie>> {
+    public class FetchMovieDetail extends AsyncTask<String, Void, MovieDetail> {
         private final String LOG_TAG = MainActivity.FetchMovieList.class.getSimpleName();
 
         @Override
-        protected List<Movie> doInBackground(String... params) {
+        protected MovieDetail doInBackground(String... params) {
             // If there's no zip code, there's nothing to look up.  Verify size of params.
             if (params.length == 0) {
                 return null;
@@ -63,30 +63,22 @@ public class DetailActivity extends AppCompatActivity {
 
             HttpURLConnection urlConnection = null;
             BufferedReader reader = null;
-            String moviesJsonStr = null;
+            String movieDetailJsonStr = null;
 
             try {
 
                 final String APIKEY_PARAM = "api_key";
                 final String LANGUAGE_PARAM = "language";
                 final String LANG_ENGLISH = "en-US";
-                final String SORT_PARAM = "sort_by";
-                final String POPULAR_SORT = "popularity.desc";
-                final String ADULT_PARAM = "include_adult";
-                final String MOVIE_ID_PARAM = "movie_id";
 
                 Uri builtUri = Uri.parse(MOVIES_BASE_URL).buildUpon()
                         .appendPath(params[0])
                         .appendQueryParameter(APIKEY_PARAM, BuildConfig.MOVIES_API_KEY)
                         .appendQueryParameter(LANGUAGE_PARAM, LANG_ENGLISH)
-                        //.appendQueryParameter(SORT_PARAM, POPULAR_SORT)
-                        //.appendQueryParameter(ADULT_PARAM, "false")
-                        //                        .appendQueryParameter(QUERY_PARAM, params[0])
                         .build();
 
                 URL url = new URL(builtUri.toString());
 
-                // Create the request to OpenWeatherMap, and open the connection
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");
                 urlConnection.connect();
@@ -112,7 +104,7 @@ public class DetailActivity extends AppCompatActivity {
                     // Stream was empty.  No point in parsing.
                     return null;
                 }
-                moviesJsonStr = buffer.toString();
+                movieDetailJsonStr = buffer.toString();
             } catch (IOException e) {
                 Log.e(LOG_TAG, "Error ", e);
                 // If the code didn't successfully get the weather data, there's no point in attemping
@@ -131,28 +123,40 @@ public class DetailActivity extends AppCompatActivity {
                 }
             }
 
-            //try {
-            //    return getMovieDataFromJson(moviesJsonStr);
-            //} catch (JSONException e) {
-            //    Log.e(LOG_TAG, e.getMessage(), e);
-            //    e.printStackTrace();
-            //}
+            try {
+                return getMovieDetailFromJson(movieDetailJsonStr);
+            } catch (JSONException e) {
+                Log.e(LOG_TAG, e.getMessage(), e);
+                e.printStackTrace();
+            }
             return null;
         }
 
+        private MovieDetail getMovieDetailFromJson (String jsonDetail) throws JSONException {
+            MovieDetail movieDetail =  new Gson().fromJson(jsonDetail, MovieDetail.class);
+            return movieDetail;
+        }
+
         @Override
-        protected void onPostExecute(List<Movie> result) {
-            //moviePosterAdapter = new ImageAdapter(context, result);
-            //GridView gridview = (GridView) findViewById(R.id.grid_posters);
-            //gridview.setAdapter(moviePosterAdapter);
-            //gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            //    @Override public void onItemClick(AdapterView<?> adapterView, View view, int i, long itemID) {
-            //        Intent myIntent = new Intent(getApplicationContext(),DetailActivity.class);
-            //        myIntent.putExtra(MOVIE_ID, itemID);
-            //        startActivity(myIntent);
-            //    }
-            //});
-            //Log.d(this.toString(), "loaded posters");
+        protected void onPostExecute(MovieDetail result) {
+            TextView synopsis = (TextView) findViewById(R.id.synopsis);
+            synopsis.setText(result.overview);
+
+
+            float starRating = new Float(result.vote_average);
+            starRating = starRating /2.0f;
+            RatingBar ratingBar = (RatingBar) findViewById(R.id.ratingBar);
+            //ratingBar.setNumStars(5);
+            ratingBar.setRating(starRating);
+
+            TextView textRating = (TextView) findViewById(R.id.rating_text);
+            textRating.setText("(" + result.vote_average + " / 10)");
+
+            ImageView imageView = (ImageView) findViewById(R.id.movie_detail_poster);
+            String url = POSTERS_BASE_URL + result.poster_path;
+            Picasso.with(context).load(url).into(imageView);
+
+            Log.d(this.toString(), "loaded posters");
         }
     }
 
