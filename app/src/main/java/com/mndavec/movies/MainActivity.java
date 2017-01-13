@@ -29,8 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     final String MOVIES_BASE_URL = "https://api.themoviedb.org/3/discover/movie?";
-    public static final String POSTERS_BASE_URL = "https://image.tmdb.org/t/p/w300_and_h450_bestv2";
-    final String POSTER_SIZE = "w500";
     public static final String MOVIE_ID = "movie_id";
     Context context;
 

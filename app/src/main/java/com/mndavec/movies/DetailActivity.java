@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -23,11 +24,16 @@ import java.net.URL;
 import org.json.JSONException;
 
 import static com.mndavec.movies.MainActivity.MOVIE_ID;
-import static com.mndavec.movies.MainActivity.POSTERS_BASE_URL;
+import static com.mndavec.movies.Utils.convertDpToPixel;
 
 public class DetailActivity extends AppCompatActivity {
 
-    final String MOVIES_BASE_URL = "https://api.themoviedb.org/3/movie/";
+    final static String MOVIES_BASE_URL = "https://api.themoviedb.org/3/movie/";
+    final static String WIDTH_PARAM = "w";
+    final static int DESIRED_WIDTH_DP = 400;
+    public static final String POSTERS_BASE_URL2 = "https://image.tmdb.org/t/p";
+
+
 
     Context context = (Context) this;
 
@@ -70,6 +76,7 @@ public class DetailActivity extends AppCompatActivity {
                 final String APIKEY_PARAM = "api_key";
                 final String LANGUAGE_PARAM = "language";
                 final String LANG_ENGLISH = "en-US";
+
 
                 Uri builtUri = Uri.parse(MOVIES_BASE_URL).buildUpon()
                         .appendPath(params[0])
@@ -146,18 +153,26 @@ public class DetailActivity extends AppCompatActivity {
             float starRating = new Float(result.vote_average);
             starRating = starRating /2.0f;
             RatingBar ratingBar = (RatingBar) findViewById(R.id.ratingBar);
-            //ratingBar.setNumStars(5);
             ratingBar.setRating(starRating);
 
             TextView textRating = (TextView) findViewById(R.id.rating_text);
             textRating.setText("(" + result.vote_average + " / 10)");
 
+            int widthPx = (int) convertDpToPixel(DESIRED_WIDTH_DP, context);
             ImageView imageView = (ImageView) findViewById(R.id.movie_detail_poster);
-            String url = POSTERS_BASE_URL + result.poster_path;
-            Picasso.with(context).load(url).into(imageView);
+            Uri posterUri = Uri.parse(POSTERS_BASE_URL2).buildUpon()
+                    .appendPath(WIDTH_PARAM + Integer.toString(widthPx))
+                    .appendPath(result.poster_path.replace("/", ""))
+                    .build();
+
+
+            Picasso.with(context).load(posterUri).into(imageView);
+            AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
+            //appBarLayout.set
 
             Log.d(this.toString(), "loaded posters");
         }
     }
+
 
 }
