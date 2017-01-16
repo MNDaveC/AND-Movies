@@ -13,11 +13,17 @@
     tools:context="com.mndavec.movies.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sort_spinner"
+        android:entries="@array/sort_criteria"/>
     <GridView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
+        android:layout_below="@+id/sort_spinner"
         android:gravity="top"
         android:numColumns="2"
         android:id="@+id/grid_posters" />

@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Spinner;
 import com.google.gson.Gson;
 import com.mndavec.movies.model.Movie;
 import java.io.BufferedReader;
@@ -24,13 +25,17 @@ import java.net.URL;
 import java.util.List;
 import org.json.JSONException;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private ImageAdapter moviePosterAdapter;
 
 
     final String MOVIES_BASE_URL = "https://api.themoviedb.org/3/discover/movie?";
     public static final String MOVIE_ID = "movie_id";
+    public static final String SORT_BY_RATING = "vote_average.desc";
+    public static final String SORT_BY_POPULARITY = "popularity.desc";
     Context context;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Spinner sort_spinner = (Spinner) findViewById(R.id.sort_spinner);
+        sort_spinner.setOnItemSelectedListener(this);
+
         updateMovies();
     }
 
@@ -66,8 +75,27 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateMovies() {
         FetchMovieList movieTask = new FetchMovieList();
-        String sort = new String("");
-        movieTask.execute(sort);
+        Spinner sort_spinner = (Spinner) findViewById(R.id.sort_spinner);
+
+        String sortSelection = sort_spinner.getSelectedItem().toString();
+        String mostPopular = new String(getString(R.string.item_most_popular));
+        String highestRated = new String(getString(R.string.item_highest_rated));
+
+        if (sortSelection.equalsIgnoreCase(mostPopular)) {
+            movieTask.execute(SORT_BY_POPULARITY);
+        } else {
+            movieTask.execute(SORT_BY_RATING);
+
+        }
+
+    }
+
+    @Override public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        updateMovies();
+    }
+
+    @Override public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 
     public class FetchMovieList extends AsyncTask<String, Void, List<Movie>> {
@@ -80,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 return null;
             }
 
+            String sortOption = params[0];
             HttpURLConnection urlConnection = null;
             BufferedReader reader = null;
             String moviesJsonStr = null;
@@ -90,13 +119,13 @@ public class MainActivity extends AppCompatActivity {
                 final String LANGUAGE_PARAM = "language";
                 final String LANG_ENGLISH = "en-US";
                 final String SORT_PARAM = "sort_by";
-                final String POPULAR_SORT = "popularity.desc";
+                //final String POPULAR_SORT = "popularity.desc";
                 final String ADULT_PARAM = "include_adult";
 
                 Uri builtUri = Uri.parse(MOVIES_BASE_URL).buildUpon()
                         .appendQueryParameter(APIKEY_PARAM, BuildConfig.MOVIES_API_KEY)
                         .appendQueryParameter(LANGUAGE_PARAM, LANG_ENGLISH)
-                        .appendQueryParameter(SORT_PARAM, POPULAR_SORT)
+                        .appendQueryParameter(SORT_PARAM, sortOption)
                         .appendQueryParameter(ADULT_PARAM, "false")
 //                        .appendQueryParameter(QUERY_PARAM, params[0])
                         .build();
