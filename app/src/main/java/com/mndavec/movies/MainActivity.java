@@ -119,7 +119,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 final String LANGUAGE_PARAM = "language";
                 final String LANG_ENGLISH = "en-US";
                 final String SORT_PARAM = "sort_by";
-                //final String POPULAR_SORT = "popularity.desc";
                 final String ADULT_PARAM = "include_adult";
 
                 Uri builtUri = Uri.parse(MOVIES_BASE_URL).buildUpon()
@@ -127,7 +126,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         .appendQueryParameter(LANGUAGE_PARAM, LANG_ENGLISH)
                         .appendQueryParameter(SORT_PARAM, sortOption)
                         .appendQueryParameter(ADULT_PARAM, "false")
-//                        .appendQueryParameter(QUERY_PARAM, params[0])
                         .build();
 
                 URL url = new URL(builtUri.toString());

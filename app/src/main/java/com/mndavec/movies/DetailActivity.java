@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -146,6 +146,17 @@ public class DetailActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(MovieDetail result) {
+            //getActionBar().setTitle(result.original_title);
+            ActionBar actionBar = getSupportActionBar();
+            actionBar.setTitle(result.original_title);
+            actionBar.setWindowTitle(result.original_title);
+            actionBar.setDefaultDisplayHomeAsUpEnabled(true);
+            actionBar.show();
+            //getSupportActionBar().setTitle(result.original_title);
+
+            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+            toolbar.setTitle(result.original_title);
+
             TextView synopsis = (TextView) findViewById(R.id.synopsis);
             synopsis.setText(result.overview);
 
@@ -165,10 +176,7 @@ public class DetailActivity extends AppCompatActivity {
                     .appendPath(result.poster_path.replace("/", ""))
                     .build();
 
-
             Picasso.with(context).load(posterUri).into(imageView);
-            AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
-            //appBarLayout.set
 
             Log.d(this.toString(), "loaded posters");
         }

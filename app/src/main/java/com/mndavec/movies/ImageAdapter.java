@@ -46,13 +46,17 @@ public class ImageAdapter extends BaseAdapter {
         }
 
         int widthPx = (int) convertDpToPixel(DESIRED_WIDTH_DP, context);
-        Uri posterUri = Uri.parse(POSTERS_BASE_URL2).buildUpon()
-                .appendPath(WIDTH_PARAM + Integer.toString(widthPx))
-                .appendPath(movie.poster_path.replace("/", ""))
-                .build();
+        String posterPath = movie.poster_path;
+        if (posterPath != null) {
+            Uri posterUri = Uri.parse(POSTERS_BASE_URL2)
+                    .buildUpon()
+                    .appendPath(WIDTH_PARAM + Integer.toString(widthPx))
+                    .appendPath(movie.poster_path.replace("/", ""))
+                    .build();
 
-        //String url = POSTERS_BASE_URL + movie.poster_path;
-        Picasso.with(context).load(posterUri).into(view);
+            //String url = POSTERS_BASE_URL + movie.poster_path;
+            Picasso.with(context).load(posterUri).into(view);
+        }
         view.setId(movie.id);
         return view;
     }
