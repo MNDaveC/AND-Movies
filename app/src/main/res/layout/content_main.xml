@@ -33,6 +33,6 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/sort_spinner"
         android:gravity="top"
-        android:numColumns="2"
+        android:numColumns="auto_fit"
         android:id="@+id/grid_posters" />
 </RelativeLayout>
