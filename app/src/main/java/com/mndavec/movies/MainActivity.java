@@ -27,15 +27,12 @@ import org.json.JSONException;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private ImageAdapter moviePosterAdapter;
 
-
-    final String MOVIES_BASE_URL = "https://api.themoviedb.org/3/discover/movie?";
+    final String MOVIES_API_URL = "http://api.themoviedb.org/3/movie";
     public static final String MOVIE_ID = "movie_id";
     public static final String MOVIE_TITLE = "original_title";
-    public static final String SORT_BY_RATING = "vote_average.desc";
-    public static final String SORT_BY_POPULARITY = "popularity.desc";
+    public static final String SORT_BY_RATING = "top_rated";
+    public static final String SORT_BY_POPULARITY = "popular";
     Context context;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,13 +107,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 final String APIKEY_PARAM = "api_key";
                 final String LANGUAGE_PARAM = "language";
                 final String LANG_ENGLISH = "en-US";
-                final String SORT_PARAM = "sort_by";
                 final String ADULT_PARAM = "include_adult";
 
-                Uri builtUri = Uri.parse(MOVIES_BASE_URL).buildUpon()
+                Uri builtUri = Uri.parse(MOVIES_API_URL).buildUpon()
+                        .appendPath(sortOption)
                         .appendQueryParameter(APIKEY_PARAM, BuildConfig.MOVIES_API_KEY)
                         .appendQueryParameter(LANGUAGE_PARAM, LANG_ENGLISH)
-                        .appendQueryParameter(SORT_PARAM, sortOption)
                         .appendQueryParameter(ADULT_PARAM, "false")
                         .build();
 
