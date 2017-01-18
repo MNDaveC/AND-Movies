@@ -9,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import com.mndavec.movies.model.Movie;
 import com.squareup.picasso.Picasso;
 
@@ -23,14 +25,20 @@ public class DetailActivity extends AppCompatActivity {
     public static final String POSTERS_BASE_URL2 = "https://image.tmdb.org/t/p";
 
 
+    @BindView(R.id.synopsis) TextView synopsis;
+    @BindView(R.id.ratingBar) RatingBar ratingBar;
+    @BindView(R.id.rating_text) TextView textRating;
+    @BindView(R.id.movie_detail_poster) ImageView imageView;
     Context context = (Context) this;
+
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         Intent intent = getIntent();
         Movie movie = (Movie) intent.getParcelableExtra(MOVIE_INFO);
         setContentView(R.layout.activity_detail);
+        ButterKnife.bind(this);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -40,20 +48,13 @@ public class DetailActivity extends AppCompatActivity {
 
     private void displayMovie(Movie movie) {
         setTitle(movie.original_title);
-
-        TextView synopsis = (TextView) findViewById(R.id.synopsis);
         synopsis.setText(movie.overview);
-
         float starRating = new Float(movie.vote_average);
         starRating = starRating /2.0f;
-        RatingBar ratingBar = (RatingBar) findViewById(R.id.ratingBar);
         ratingBar.setRating(starRating);
-
-        TextView textRating = (TextView) findViewById(R.id.rating_text);
         textRating.setText("(" + movie.vote_average + " / 10)");
 
         int widthPx = (int) convertDpToPixel(DESIRED_WIDTH_DP, context);
-        ImageView imageView = (ImageView) findViewById(R.id.movie_detail_poster);
         Uri posterUri = Uri.parse(POSTERS_BASE_URL2).buildUpon()
                 .appendPath(WIDTH_PARAM + Integer.toString(widthPx))
                 .appendPath(movie.poster_path.replace("/", ""))
