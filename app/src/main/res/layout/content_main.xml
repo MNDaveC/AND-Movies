@@ -13,11 +13,19 @@
     tools:context="com.mndavec.movies.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <TextView
+        android:text="Sort by:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:layout_above="@+id/grid_posters"/>
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/sort_spinner"
-        android:entries="@array/sort_criteria"/>
+        android:entries="@array/sort_criteria"
+        android:layout_toEndOf="@+id/textView"/>
     <GridView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

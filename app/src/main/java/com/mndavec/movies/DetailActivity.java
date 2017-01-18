@@ -76,8 +76,7 @@ public class DetailActivity extends AppCompatActivity {
                 final String APIKEY_PARAM = "api_key";
                 final String LANGUAGE_PARAM = "language";
                 final String LANG_ENGLISH = "en-US";
-
-
+                
                 Uri builtUri = Uri.parse(MOVIES_BASE_URL).buildUpon()
                         .appendPath(params[0])
                         .appendQueryParameter(APIKEY_PARAM, BuildConfig.MOVIES_API_KEY)

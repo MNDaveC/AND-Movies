@@ -31,35 +31,32 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginLeft="10dp"/>
             <TextView
+                android:text="TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rating_text"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@+id/ratingBar"/>
+            <TextView
                 android:text="Synopsis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/synopsis_title"
                 android:textStyle="normal|bold"
-                android:layout_below="@+id/ratingBar"
                 android:layout_alignParentEnd="true"
                 android:layout_alignStart="@+id/ratingBar"/>
-            <TextView
-                android:text="TextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/rating_text"
-                android:layout_above="@+id/synopsis_title"
-                android:layout_alignParentEnd="true"
-                android:layout_toEndOf="@+id/ratingBar"/>
+
             <TextView
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/synopsis"
-                android:layout_below="@+id/synopsis_title"
                 android:layout_alignParentEnd="true"
                 android:layout_alignStart="@+id/synopsis_title"/>
 
             <ImageView
                 android:layout_width="match_parent"
                 app:srcCompat="@mipmap/ic_launcher"
-                android:layout_below="@+id/synopsis"
                 android:layout_alignStart="@+id/synopsis"
                 android:layout_marginTop="22dp"
                 android:id="@+id/movie_detail_poster"
