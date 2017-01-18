@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -24,6 +23,7 @@ import java.net.URL;
 import org.json.JSONException;
 
 import static com.mndavec.movies.MainActivity.MOVIE_ID;
+import static com.mndavec.movies.MainActivity.MOVIE_TITLE;
 import static com.mndavec.movies.Utils.convertDpToPixel;
 
 public class DetailActivity extends AppCompatActivity {
@@ -32,7 +32,6 @@ public class DetailActivity extends AppCompatActivity {
     final static String WIDTH_PARAM = "w";
     final static int DESIRED_WIDTH_DP = 400;
     public static final String POSTERS_BASE_URL2 = "https://image.tmdb.org/t/p";
-
 
 
     Context context = (Context) this;
@@ -45,6 +44,7 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setTitle(intent.getStringExtra(MOVIE_TITLE));
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         loadMovie(movieID);
@@ -146,20 +146,11 @@ public class DetailActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(MovieDetail result) {
-            //getActionBar().setTitle(result.original_title);
-            ActionBar actionBar = getSupportActionBar();
-            actionBar.setTitle(result.original_title);
-            actionBar.setWindowTitle(result.original_title);
-            actionBar.setDefaultDisplayHomeAsUpEnabled(true);
-            actionBar.show();
-            //getSupportActionBar().setTitle(result.original_title);
 
-            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-            toolbar.setTitle(result.original_title);
+            setTitle(result.original_title);
 
             TextView synopsis = (TextView) findViewById(R.id.synopsis);
             synopsis.setText(result.overview);
-
 
             float starRating = new Float(result.vote_average);
             starRating = starRating /2.0f;

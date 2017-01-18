@@ -5,8 +5,9 @@
     <string name="item_most_popular">Most Popular</string>
     <string name="item_highest_rated">Highest Rated</string>
     <string-array name="sort_criteria">
-        <item>Highest Rated</item>
         <item>Most Popular</item>
+        <item>Highest Rated</item>
     </string-array>
+
 
 </resources>

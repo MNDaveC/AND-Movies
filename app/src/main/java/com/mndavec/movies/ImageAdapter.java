@@ -58,6 +58,7 @@ public class ImageAdapter extends BaseAdapter {
             Picasso.with(context).load(posterUri).into(view);
         }
         view.setId(movie.id);
+        view.setTag(movie.original_title);
         return view;
     }
 }

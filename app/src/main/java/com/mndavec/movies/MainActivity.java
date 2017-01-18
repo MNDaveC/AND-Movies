@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     final String MOVIES_BASE_URL = "https://api.themoviedb.org/3/discover/movie?";
     public static final String MOVIE_ID = "movie_id";
+    public static final String MOVIE_TITLE = "original_title";
     public static final String SORT_BY_RATING = "vote_average.desc";
     public static final String SORT_BY_POPULARITY = "popularity.desc";
     Context context;
@@ -193,6 +194,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 @Override public void onItemClick(AdapterView<?> adapterView, View view, int i, long itemID) {
                     Intent myIntent = new Intent(getApplicationContext(),DetailActivity.class);
                     myIntent.putExtra(MOVIE_ID, itemID);
+                    myIntent.putExtra(MOVIE_TITLE, (String) view.getTag());
                     startActivity(myIntent);
                 }
             });
