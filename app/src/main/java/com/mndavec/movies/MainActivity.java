@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Spinner;
+import android.widget.Toast;
 import com.google.gson.Gson;
 import com.mndavec.movies.model.Movie;
 import java.io.BufferedReader;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     final String MOVIES_API_URL = "http://api.themoviedb.org/3/movie";
     public static final String MOVIE_ID = "movie_id";
+    public static final String MOVIE_INFO = "movie_info";
     public static final String MOVIE_TITLE = "original_title";
     public static final String SORT_BY_RATING = "top_rated";
     public static final String SORT_BY_POPULARITY = "popular";
@@ -121,7 +123,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 // Create the request to OpenWeatherMap, and open the connection
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");
-                urlConnection.connect();
+                try {
+                    urlConnection.connect();
+                } catch (Exception e) {
+                    Log.e(this.toString(), e.toString());
+                    return null;
+                }
 
                 // Read the input stream into a String
                 InputStream inputStream = urlConnection.getInputStream();
@@ -174,18 +181,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         @Override
         protected void onPostExecute(List<Movie> result) {
-            moviePosterAdapter = new ImageAdapter(context, result);
-            GridView gridview = (GridView) findViewById(R.id.grid_posters);
-            gridview.setAdapter(moviePosterAdapter);
-            gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override public void onItemClick(AdapterView<?> adapterView, View view, int i, long itemID) {
-                    Intent myIntent = new Intent(getApplicationContext(),DetailActivity.class);
-                    myIntent.putExtra(MOVIE_ID, itemID);
-                    myIntent.putExtra(MOVIE_TITLE, (String) view.getTag());
-                    startActivity(myIntent);
-                }
-            });
-            Log.d(this.toString(), "loaded posters");
+
+            if (result != null) {
+                GridView gridview = (GridView) findViewById(R.id.grid_posters);
+                moviePosterAdapter = new ImageAdapter(context, result);
+                gridview.setAdapter(moviePosterAdapter);
+                gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override public void onItemClick(AdapterView<?> adapterView, View view, int i, long itemID) {
+                        Intent myIntent = new Intent(getApplicationContext(), DetailActivity.class);
+                        myIntent.putExtra(MOVIE_INFO, (Movie) view.getTag());
+                        startActivity(myIntent);
+                    }
+                });
+                Log.d(this.toString(), "loaded posters");
+            } else {
+                Toast.makeText(context, "Failed to load updated movie results. Check your internet connection.", Toast.LENGTH_LONG).show();
+            }
         }
     }
 
