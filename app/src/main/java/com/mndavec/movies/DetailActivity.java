@@ -29,6 +29,7 @@ public class DetailActivity extends AppCompatActivity {
     @BindView(R.id.ratingBar) RatingBar ratingBar;
     @BindView(R.id.rating_text) TextView textRating;
     @BindView(R.id.movie_detail_poster) ImageView imageView;
+    @BindView(R.id.release_date) TextView releaseDate;
     Context context = (Context) this;
 
 
@@ -53,6 +54,7 @@ public class DetailActivity extends AppCompatActivity {
         starRating = starRating /2.0f;
         ratingBar.setRating(starRating);
         textRating.setText("(" + movie.vote_average + " / 10)");
+        releaseDate.setText(movie.release_date);
 
         int widthPx = (int) convertDpToPixel(DESIRED_WIDTH_DP, context);
         Uri posterUri = Uri.parse(POSTERS_BASE_URL2).buildUpon()

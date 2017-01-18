@@ -31,14 +31,33 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginLeft="10dp"/>
             <TextView
+                android:text="Average Rating: "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="normal|bold"
+                android:layout_alignParentEnd="true"/>
+            <TextView
                 android:text="TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/rating_text"
                 android:layout_alignParentEnd="true"
                 android:layout_toEndOf="@+id/ratingBar"/>
+
             <TextView
-                android:text="Synopsis"
+                android:text="Release Date: "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="normal|bold"
+                android:layout_alignParentEnd="true"/>
+
+            <TextView
+                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/release_date"/>
+            <TextView
+                android:text="Synopsis: "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/synopsis_title"
